@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Logmancer</title>
         <meta name="description" content="NextJS ts template" />
       </Head>
       <Typography as="body1">NextJS ts template</Typography>

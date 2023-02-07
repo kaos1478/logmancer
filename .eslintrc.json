@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "plugin:react/recommended",
+    "standard",
+    "next"
+
+  ],
+  "plugins": [
+    "prettier",
+    "jest"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "space-before-function-paren": ["error", "never"],
+    "no-use-before-define": "off"
+  },
+  "globals": {
+    "React": true
+    // "google": true,
+    // "expect": true,
+    // "jsdom": true,
+    // "JSX": true
+  },
+  "env": {
+    "jest/globals": true
+  }
+}

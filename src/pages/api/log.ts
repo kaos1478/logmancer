@@ -5,7 +5,7 @@ import Cors from 'cors'
 
 const cors = Cors({
   methods: ['POST', 'GET'],
-  origin: [/\.staging\.totalpass\.com$/, /\.totalpass\.com$/]
+  origin: '*'
 })
 
 function runMiddleware(

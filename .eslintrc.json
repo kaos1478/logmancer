@@ -11,7 +11,7 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    "space-before-function-paren": ["error", "always"],
+    "space-before-function-paren": "off",
     "no-use-before-define": "off"
   },
   "globals": {

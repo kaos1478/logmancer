@@ -1,8 +1,36 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { connect } from '@/utils/connection'
 import { IResponseFuncs } from '@/utils/types'
+import Cors from 'cors'
+
+const cors = Cors({
+  methods: ['POST', 'GET'],
+  origin: [
+    'http://dev.staging.totalpass.com:3003/',
+    'https://app.staging.totalpass.com/',
+    'https://app.totalpass.com/'
+  ]
+})
+
+function runMiddleware(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  fn: Function
+) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result: any) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
+
+      return resolve(result)
+    })
+  })
+}
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await runMiddleware(req, res, cors)
+
   const method: keyof IResponseFuncs = req.method as keyof IResponseFuncs
 
   const catcher = (error: Error) => res.status(400).json({ error })

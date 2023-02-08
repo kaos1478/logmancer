@@ -10,8 +10,10 @@ export const connect = async () => {
 
   const LogSchema = new mongoose.Schema({
     userId: Number,
-    details: String
+    details: [String]
   })
+
+  LogSchema.set('timestamps', true)
 
   const Log = mongoose.models.Log || mongoose.model('Log', LogSchema)
 

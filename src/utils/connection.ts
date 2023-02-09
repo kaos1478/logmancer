@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import { stringify } from 'querystring'
 
 const { DATABASE_URL } = process.env
 

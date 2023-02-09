@@ -10,6 +10,7 @@ export const connect = async () => {
 
   const LogSchema = new mongoose.Schema({
     userId: Number,
+    url: String,
     details: [String]
   })
 

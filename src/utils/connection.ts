@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { stringify } from 'querystring'
 
 const { DATABASE_URL } = process.env
 
@@ -10,6 +11,7 @@ export const connect = async () => {
 
   const LogSchema = new mongoose.Schema({
     userId: Number,
+    url: String,
     details: [String]
   })
 

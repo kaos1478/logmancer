@@ -34,7 +34,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: IResponseFuncs = {
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Log } = await connect()
-      res.json(await Log.find({}).catch(catcher))
+      const { userId } = req.query
+      const logs = await Log.find({ userId }).catch(catcher)
+      res.json(logs)
     },
 
     POST: async (req: NextApiRequest, res: NextApiResponse) => {
